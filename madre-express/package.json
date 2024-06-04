@@ -9,6 +9,7 @@
     "dev": "concurrently \"npm run api\" \"npm run server\""
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "body-parser": "^1.20.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
