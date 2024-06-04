@@ -1,0 +1,45 @@
+1- Instalar as dependecias do projeto 
+
+# npm install
+
+2- Rodar o projeto
+
+# npm run dev 
+
+OBS: O json-server irá rodar na porta 4000 e a aplicação express na porta 3000, 
+     talvez não seja possivel acessar a página da aplicação através do crtl + click no endereço da pag
+     então, ao executar o comando, no navegador de preferência digite o endereço: 'http://localhost:3000'.
+
+3- Ao inicio das atividades, tendo o git logado no VsCode, e o repositório já clonado, crie uma Branch com o seu nome para realização de sua atividade, exemplo: 
+
+# git checkout -b RafaelaCavalcanti
+
+OBS: Dessa forma, as atualizações não irão se misturar e sempre que você finalizar parte de seu código ou atividade, subindo para a Branch Main (principal)
+     estaremos separando o que está em desenvolvimento do que esta finalizado.
+
+4- Após finalizar parte da sua atividade ou ela toda, adicionar a sua Branch/repositório as alterações feitas: 
+
+# git add .
+
+5 - Em seguida, faça o commit com uma mensagem explicando o que foi feito (tendo finalizado ou subindo parte do que foi feito).
+
+# git commit -m "Descrição das alterações ou atividade finalizada"
+
+6 - Envie as alterações para  o repositório: 
+
+OBS: Certifique-se de estar na sua Branch.
+
+# git push origin RafaelaCavalcanti
+
+! Resumos dos comandos !
+
+git clone <URL-do-repositório>
+cd <nome-do-repositório>
+git checkout -b minha-nova-branch  # Opcional, mas recomendado
+
+# Faça suas alterações no código
+
+git add .
+git commit -m "Descrição das alterações"
+git push origin minha-nova-branch
+

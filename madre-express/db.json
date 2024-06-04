@@ -1,0 +1,29 @@
+{
+  "pacotes": [
+    {
+      "id": 1,
+      "pais": "Brasil",
+      "valorPassagem": 1500
+    },
+    {
+      "id": 2,
+      "pais": "Estados Unidos",
+      "valorPassagem": 2500
+    },
+    {
+      "id": 3,
+      "pais": "Japão",
+      "valorPassagem": 3000
+    },
+    {
+      "id": 4,
+      "pais": "França",
+      "valorPassagem": 2000
+    },
+    {
+      "id": 5,
+      "pais": "Austrália",
+      "valorPassagem": 2800
+    }
+  ]
+}
