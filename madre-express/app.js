@@ -5,6 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var fs = require('fs');
+var axios = require('axios');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,11 +22,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// body-parser middleware setup
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// multer setup for file uploads
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/')
@@ -36,8 +37,32 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-app.post('/upload', upload.single('file'), (req, res) => {
-  res.send('File uploaded successfully!');
+app.post('/pacotes', upload.single('imagem'), (req, res) => {
+  const novoPacote = {
+    id: Date.now(),
+    pais: req.body.pais,
+    valorPassagem: req.body.valorPassagem,
+    imagem: `/uploads/${req.file.filename}`
+  };
+
+  const dbPath = path.join(__dirname, 'db.json');
+  const db = require(dbPath);
+  db.pacotes.push(novoPacote);
+
+  fs.writeFileSync(dbPath, JSON.stringify(db, null, 2));
+  res.json(novoPacote);
+});
+
+// Rota para listar pacotes
+app.get('/pacotes', async (req, res) => {
+  try {
+    const response = await axios.get('http://localhost:4000/pacotes');
+    const pacotes = response.data;
+    res.render('pacotes', { pacotes });
+  } catch (error) {
+    console.error('Erro ao buscar pacotes:', error);
+    res.status(500).send('Erro ao buscar pacotes');
+  }
 });
 
 app.use('/', indexRouter);
