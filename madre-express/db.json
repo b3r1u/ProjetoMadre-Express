@@ -66,5 +66,25 @@
       "refeicao": "café da manhã",
       "imagem": "uploads/india.jpg"
     }
+  ],
+  "usuarios": [
+    {
+      "nome": "João Lima",
+      "email": "joalima1810@gmail.com",
+      "CPF": "79904102037",
+      "data de nascimento": "18/08/2001",
+      "telefone": "+556733743220",
+      "senha": "marsalgado123",
+      "endereço": "rua dos navegantes"
+    },
+    {
+      "nome": "Creuza Soares",
+      "email": "creuzasoares99@hotmail.com",
+      "CPF": "12345678901",
+      "data de nascimento": "29/02/2000",
+      "telefone": "+558344618891",
+      "senha": "lagoadoce123",
+      "endereço": "rua do jacarezinho"
+    }
   ]
 }
