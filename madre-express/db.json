@@ -45,7 +45,7 @@
       "imagem": "uploads/Franca.jpg"
     },
     {
-      "id": 5,  
+      "id": 5,
       "pais": "Austrália",
       "valorPassagem": 2800,
       "duracao": "8 dias",
@@ -54,17 +54,6 @@
       "saidas": "diárias",
       "refeicao": "café da manhã",
       "imagem": "uploads/Australia.jpg"
-    },
-    {
-      "id": 6,  
-      "pais": "India",
-      "valorPassagem": 4800,
-      "duracao": "15 dias",
-      "passagem": "inclusa",
-      "validade": "15/7/2024",
-      "saidas": "programadas",
-      "refeicao": "café da manhã",
-      "imagem": "uploads/india.jpg"
     }
   ]
 }
