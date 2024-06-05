@@ -69,22 +69,24 @@
   ],
   "usuarios": [
     {
+      "id": 1,
       "nome": "João Lima",
       "email": "joalima1810@gmail.com",
-      "CPF": "79904102037",
-      "data de nascimento": "18/08/2001",
+      "cpf": "79904102037",
+      "dataNascimento": "18/08/2001",
       "telefone": "+556733743220",
-      "senha": "marsalgado123",
-      "endereço": "rua dos navegantes"
+      "endereco": "rua dos navegantes",
+      "senha": "marsalgado123"
     },
     {
+      "id": "2",
       "nome": "Creuza Soares",
       "email": "creuzasoares99@hotmail.com",
-      "CPF": "12345678901",
-      "data de nascimento": "29/02/2000",
+      "cpf": "12345678901",
+      "dataNascimento": "29/02/2000",
       "telefone": "+558344618891",
-      "senha": "lagoadoce123",
-      "endereço": "rua do jacarezinho"
+      "endereco": "rua do jacarezinho",
+      "senha": "lagoadoce123"
     }
   ]
 }
