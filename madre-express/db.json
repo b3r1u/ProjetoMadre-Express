@@ -4,9 +4,9 @@
       "id": 1,
       "pais": "Brasil",
       "valorPassagem": 1500,
-      "duracao": "6 dias",
       "passagem": "não inclusa",
       "validade": "15/10/2024",
+      "duracao": "6 dias",
       "saidas": "diárias",
       "refeicao": "café da manhã",
       "imagem": "uploads/Brasil.jpeg"
@@ -15,9 +15,9 @@
       "id": 2,
       "pais": "New York",
       "valorPassagem": 2500,
-      "duracao": "8 dias",
       "passagem": "incluso",
       "validade": "18/11/2024",
+      "duracao": "8 dias",
       "saidas": "programadas",
       "refeicao": "café da manhã",
       "imagem": "uploads/NewYork.jpg"
@@ -26,9 +26,9 @@
       "id": 3,
       "pais": "Japão",
       "valorPassagem": 3000,
-      "duracao": "4 dias",
       "passagem": "não incluso",
       "validade": "12/8/2024",
+      "duracao": "4 dias",
       "saidas": "diárias",
       "refeicao": "nao incluso",
       "imagem": "uploads/Japao.jpg"
@@ -37,9 +37,9 @@
       "id": 4,
       "pais": "França",
       "valorPassagem": 2000,
-      "duracao": "10 dias",
       "passagem": "incluso",
       "validade": "15/13/2024",
+      "duracao": "10 dias",
       "saidas": "programadas",
       "refeicao": "não incluso",
       "imagem": "uploads/Franca.jpg"
@@ -48,12 +48,34 @@
       "id": 5,
       "pais": "Austrália",
       "valorPassagem": 2800,
-      "duracao": "8 dias",
       "passagem": "não inclusa",
       "validade": "16/9/2024",
+      "duracao": "8 dias",
       "saidas": "diárias",
       "refeicao": "café da manhã",
       "imagem": "uploads/Australia.jpg"
+    },
+    {
+      "id": 6,
+      "pais": "India",
+      "valorPassagem": 10000,
+      "duracao": "8 dias",
+      "passagem": "Inclusa",
+      "validade": "01/10/2024",
+      "saidas": "Diárias",
+      "refeicao": "Café da Manhã",
+      "imagem": "uploads/india.jpg"
+    },
+    {
+      "id": 7,
+      "pais": "Recife",
+      "valorPassagem": 4500,
+      "duracao": "7 dias",
+      "passagem": "Inclusa",
+      "validade": "31/12/2024",
+      "saidas": "Diárias",
+      "refeicao": "Inclusas",
+      "imagem": "uploads/Brasil_Recife.jpg"
     }
   ]
 }

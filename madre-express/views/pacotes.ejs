@@ -1,144 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pacotes de Viagem</title>
-  <style>
-    body {
-        background-color: aliceblue;
-    }
-    h1{
-        color: #285164;
-    }
-    #pacote {
-        margin: auto;
-        width: 80em;
-        height: 20em;
-        margin-top: 5em;
-        margin-bottom: 5em;
-        background-color: #FCF2E8;
-        display: flex;
-        justify-content: space-between;
-    }
-    #name {
-        margin-right: auto;
-        margin-left: 2em;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-    #name h2 {
-        color: #285164;
-    }
-    .valor {
-        background-color: #285164;
-        color: #fff;
-        text-align: center;
-        width: 18em;
-        padding-top: 3em;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-    #photo {
-        width: 25em;
-        height: 20em;
-    }
-    button {
-        border: 2px solid #ffff;
-        background-color: #285164;
-        color: #fff;
-        width: 10em;
-        height: 3em;
-        font-size: 1em;
-        font-weight: bolder;
-        cursor: pointer;
-    }
-    .top {
-        text-align: center;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-    .icon {
-        width: 15px;
-    }
-    form {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
-    }
-    form input {
-        width: 200px;
-        height: 30px;
-        margin-right: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacotes de Viagem</title>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        h1 {
+            color: #285164;
+        }
+
+        #pacote {
+            margin: auto;
+            width: 80em;
+            height: 20em;
+            margin-top: 5em;
+            margin-bottom: 5em;
+            background-color: #FCF2E8;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #name {
+            margin-right: auto;
+            margin-left: 2em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #name h2 {
+            color: #285164;
+        }
+
+        .valor {
+            background-color: #285164;
+            color: #fff;
+            text-align: center;
+            width: 18em;
+            padding-top: 3em;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        #photo {
+            width: 25em;
+            height: 20em;
+        }
+
+        button {
+            border: 2px solid #ffff;
+            background-color: #285164;
+            color: #fff;
+            width: 10em;
+            height: 3em;
+            font-size: 1em;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+
+        .top {
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .icon {
+            width: 15px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input {
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="top">
         <h1>Pacotes de Viagem</h1>
-        <h3> (Você também pode personalizar a sua viagem de acordo com orçamento ou necessidades).</h3>
+        <h3>(Você também pode personalizar a sua viagem de acordo com orçamento ou necessidades).</h3>
     </div>
+
     <div id="pacotes">
-    <% pacotes.forEach(function(pacote) { %>
-        <div id="pacote">
-            <img id="photo" src="<%= pacote.imagem %>" alt="<%= pacote.pais %>" />
-            <div id="name">
-                <h2>Pacote <%= pacote.pais %></h2>
-                <p> <img class="icon" src="images/modo-aviao (1).png"> Passagem Aérea: <b><%= pacote.passagem %></b></p>
-                <p> <img class="icon" src="images/calendario.png"> Validade: <b><%= pacote.validade %></b></p>
-                <p> <img class="icon" src="images/decolar-o-aviao.png"> Saídas: <b><%= pacote.saidas %></b></p>
-                <p> <img class="icon" src="images/sino-do-hotel.png"> Refeição: <b><%= pacote.refeicao %></b></p>
+        <% pacotes.forEach(function(pacote) { %>
+            <div id="pacote">
+
+                <img id="photo" src="<%= pacote.imagem %>" alt="<%= pacote.pais %>" />
+
+                <div id="name">
+                    <h2>Pacote <%= pacote.pais %>
+                    </h2>
+                    <p><img class="icon" src="images/modo-aviao (1).png"> Passagem Aérea: <b>
+                            <%= pacote.passagem %>
+                        </b></p>
+                    <p><img class="icon" src="images/calendario.png"> Validade: <b>
+                            <%= pacote.validade %>
+                        </b></p>
+                    <p><img class="icon" src="images/duracao.png"> Duração: <b>
+                            <%= pacote.duracao %>
+                        </b></p>
+                    <p><img class="icon" src="images/decolar-o-aviao.png"> Saídas: <b>
+                            <%= pacote.saidas %>
+                        </b></p>
+                    <p><img class="icon" src="images/sino-do-hotel.png"> Refeição: <b>
+                            <%= pacote.refeicao %>
+                        </b></p>
+                </div>
+
+                <div class="valor">
+                    <p>PREÇO A PARTIR DE:</p>
+                    <h2>BRL <b>
+                            <%= pacote.valorPassagem %>
+                        </b></h2>
+                    <p>POR PESSOA, EM APT DUPLO</p>
+                    <br>
+                    <!-- Botões para editar e excluir -->
+                    <button
+                        onclick="openEditModal('<%= pacote.id %>', '<%= pacote.pais %>', '<%= pacote.valorPassagem %>', '<%= pacote.passagem %>', '<%= pacote.validade %>', '<%= pacote.saidas %>', '<%= pacote.refeicao %>')">Editar</button>
+
+
+                    <button
+                        onclick="if(confirm('Tem certeza que deseja excluir este pacote?'))deletePacote('<%= pacote.id %>')">Excluir</button>
+
+                </div>
+
             </div>
-            <div class="valor">
-                <p>PREÇO A PARTIR DE:</p>
-                <h2>BRL <b><%= pacote.valorPassagem %></b></h2>
-                <p>POR PESSOA, EM APT DUPLO</p>
-                <br>
-                <!-- Botões para editar e excluir -->
-                <button onclick="toggleForm('editForm-<%= pacote.id %>')">Editar</button>
-                <form id="editForm-<%= pacote.id %>" style="display:none;" onsubmit="event.preventDefault(); saveEdit('<%= pacote.id %>')">
-                    <input type="text" id="pais-<%= pacote.id %>" value="<%= pacote.pais %>" placeholder="País" required>
-                    <input type="number" id="valorPassagem-<%= pacote.id %>" value="<%= pacote.valorPassagem %>" placeholder="Valor da Passagem" required>
-                    <input type="text" id="duracao-<%= pacote.id %>" value="<%= pacote.duracao %>" placeholder="Duração" required>
-                    <input type="text" id="passagem-<%= pacote.id %>" value="<%= pacote.passagem %>" placeholder="Passagem" required>
-                    <input type="text" id="validade-<%= pacote.id %>" value="<%= pacote.validade %>" placeholder="Validade" required>
-                    <input type="text" id="saidas-<%= pacote.id %>" value="<%= pacote.saidas %>" placeholder="Saídas" required>
-                    <input type="text" id="refeicao-<%= pacote.id %>" value="<%= pacote.refeicao %>" placeholder="Refeição" required>
-                    <button type="submit">Salvar</button>
-                    <button type="button" onclick="toggleForm('editForm-<%= pacote.id %>')">Cancelar</button>
-                </form>
-                <button onclick="if(confirm('Tem certeza que deseja excluir este pacote?')) deletePacote('<%= pacote.id %>')">Excluir</button>
-            </div>
-        </div>
-    <% }) %>
+            <% }) %>
     </div>
-    <!-- Formulário para adicionar novo pacote -->
-    <form id="addForm" action="/pacotes" method="POST" enctype="multipart/form-data">
-        <input type="text" id="novoPais" name="pais" placeholder="País" required>
-        <input type="number" id="novoValorPassagem" name="valorPassagem" placeholder="Valor da Passagem" required>
-        <input type="text" id="novaDuracao" name="duracao" placeholder="Duração" required>
-        <input type="text" id="novaPassagem" name="passagem" placeholder="Passagem" required>
-        <input type="text" id="novaValidade" name="validade" placeholder="Validade" required>
-        <input type="text" id="novasSaidas" name="saidas" placeholder="Saídas" required>
-        <input type="text" id="novaRefeicao" name="refeicao" placeholder="Refeição" required>
-        <input type="file" id="novaImagem" name="imagem" placeholder="Imagem" required>
-        <button type="button" onclick="addPacote()">Adicionar Pacote</button>
-    </form>
+
+    <!-- Botão para abrir o modal de adicionar novo pacote -->
+    <button onclick="openAddModal()">Adicionar Pacote</button>
+
+    <!-- Modal para adicionar novo pacote -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addModal')">&times;</span>
+            <h2>Adicionar Novo Pacote</h2>
+            <form id="addForm">
+                <input type="text" id="novoPais" name="pais" placeholder="País" required>
+                <input type="number" id="novoValorPassagem" name="valorPassagem" placeholder="Valor da Passagem"
+                    required>
+                <input type="text" id="novaPassagem" name="passagem" placeholder="Passagem Aérea" required>
+                <input type="text" id="novaValidade" name="validade" placeholder="Validade" required>
+                <input type="text" id="novaDuracao" name="duracao" placeholder="Duração" required>
+                <input type="text" id="novasSaidas" name="saidas" placeholder="Saídas" required>
+                <input type="text" id="novaRefeicao" name="refeicao" placeholder="Refeição" required>
+                <button type="button" onclick="addPacote()">Adicionar Pacote</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para editar pacote -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editModal')">&times;</span>
+            <h2>Editar Pacote</h2>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+                <input type="text" id="editPais" placeholder="País" required>
+                <input type="number" id="editValorPassagem" placeholder="Valor da Passagem" required>
+                <input type="text" id="editPassagem" placeholder="Passagem Aérea" required>
+                <input type="text" id="editValidade" placeholder="Validade" required>
+                <input type="text" id="editDuracao" placeholder="Duração" required>
+                <input type="text" id="editSaidas" placeholder="Saídas" required>
+                <input type="text" id="editRefeicao" placeholder="Refeição" required>
+                <button type="button" onclick="saveEdit()">Salvar</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        function toggleForm(formId) {
-            var form = document.getElementById(formId);
-            if (form.style.display === 'none' || form.style.display === '') {
-                form.style.display = 'flex';
-            } else {
-                form.style.display = 'none';
-            }
+        function openAddModal() {
+            document.getElementById('addModal').style.display = 'block';
         }
-        async function saveEdit(id) {
-            var pais = document.getElementById(`pais-${id}`).value;
-            var valorPassagem = document.getElementById(`valorPassagem-${id}`).value;
-            var duracao = document.getElementById(`duracao-${id}`).value;
-            var passagem = document.getElementById(`passagem-${id}`).value;
-            var validade = document.getElementById(`validade-${id}`).value;
-            var saidas = document.getElementById(`saidas-${id}`).value;
-            var refeicao = document.getElementById(`refeicao-${id}`).value;
+
+        function openEditModal(id, pais, valorPassagem, passagem, validade, duracao, saidas, refeicao) {
+            document.getElementById('editId').value = id;
+            document.getElementById('editPais').value = pais;
+            document.getElementById('editValorPassagem').value = valorPassagem;
+            document.getElementById('editPassagem').value = passagem;
+            document.getElementById('editValidade').value = validade;
+            document.getElementById('editDuracao').value = duracao;
+            document.getElementById('editSaidas').value = saidas;
+            document.getElementById('editRefeicao').value = refeicao;
+            document.getElementById('editModal').style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        async function saveEdit() {
+            var id = document.getElementById('editId').value;
+            var pais = document.getElementById('editPais').value;
+            var valorPassagem = parseFloat(document.getElementById('editValorPassagem').value);
+            var passagem = document.getElementById('editPassagem').value
+            var validade = document.getElementById('editValidade').value;
+            var duracao = document.getElementById('editDuracao').value;
+            var saidas = document.getElementById('editSaidas').value;
+            var refeicao = document.getElementById('editRefeicao').value;
+
             try {
                 const response = await fetch(`/pacotes/${id}`, {
                     method: 'PUT',
@@ -155,45 +260,77 @@
                         refeicao: refeicao
                     })
                 });
+
                 if (!response.ok) {
                     throw new Error('Erro ao editar pacote');
                 }
+
+                closeModal('editModal');
                 window.location.reload();
             } catch (error) {
                 console.error('Erro ao editar pacote:', error);
                 alert('Erro ao editar pacote');
             }
         }
+
         async function addPacote() {
-            var formData = new FormData(document.getElementById('addForm'));
+            var pais = document.getElementById('novoPais').value;
+            var valorPassagem = parseFloat(document.getElementById('novoValorPassagem').value);
+            var duracao = document.getElementById('novaDuracao').value;
+            var passagem = document.getElementById('novaPassagem').value;
+            var validade = document.getElementById('novaValidade').value;
+            var saidas = document.getElementById('novasSaidas').value;
+            var refeicao = document.getElementById('novaRefeicao').value;
+
             try {
                 const response = await fetch('/pacotes', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        pais: pais,
+                        valorPassagem: valorPassagem,
+                        duracao: duracao,
+                        passagem: passagem,
+                        validade: validade,
+                        saidas: saidas,
+                        refeicao: refeicao
+                    })
                 });
+
                 if (!response.ok) {
                     throw new Error('Erro ao adicionar pacote');
                 }
+
+                closeModal('addModal');
                 window.location.reload();
             } catch (error) {
                 console.error('Erro ao adicionar pacote:', error);
                 alert('Erro ao adicionar pacote');
             }
         }
+
+
         async function deletePacote(id) {
             try {
                 const response = await fetch(`/pacotes/${id}`, {
                     method: 'DELETE'
                 });
+
                 if (!response.ok) {
-                    throw new Error('Erro ao deletar pacote');
+                    throw new Error('Ocorreu um problema ao tentar excluir o pacote.');
                 }
+
+                // Atualizar a página após a exclusão
                 window.location.reload();
             } catch (error) {
-                console.error('Erro ao deletar pacote:', error);
-                alert('Erro ao deletar pacote');
+                console.error('Erro ao excluir o pacote:', error);
+                alert('Ocorreu um erro ao tentar excluir o pacote. Verifique o console para mais detalhes.');
             }
         }
+
     </script>
 </body>
+
 </html>
